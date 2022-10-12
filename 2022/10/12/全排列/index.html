@@ -16,21 +16,21 @@
   <meta name="author" content="ranger2">
   <meta name="keywords" content="">
   
-    <meta name="description" content="801. Minimum Swaps To Make Sequences Increasing本题若上下数组同时从后缩短，也具有最优解，每一步都只有两种选择，交换或者不交换。可以考虑用 dp[n][2]来做记忆化存储，dp[i][0]表示第i次不做交换的前i次交换次数，dp[i][1]表示第i次做交换的前i次交换次数。 状态转移方程的条件为nums1的当前位置a与前一个位置b，以及nums2的当前">
+    <meta name="description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;permutations&#x2F; 力扣46题全排列回溯法 回溯法属于深度优先，回溯函数首先要写出退出条件，也就是深度达到最深时。 需要一个布尔数组保存已经搜索过的结点。 每一步操作，在调用递归函数后，都要恢复操作前的状态，这个恢复过程称为回溯。 本题对于ans的值，每一个reverse函数都会将其恢复，故最终的ans仍为空，每一次reverse递">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣801最小交换">
-<meta property="og:url" content="http://example.com/2022/10/10/%E5%8A%9B%E6%89%A3801%E6%9C%80%E5%B0%8F%E4%BA%A4%E6%8D%A2/index.html">
+<meta property="og:title" content="全排列">
+<meta property="og:url" content="http://example.com/2022/10/12/%E5%85%A8%E6%8E%92%E5%88%97/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="801. Minimum Swaps To Make Sequences Increasing本题若上下数组同时从后缩短，也具有最优解，每一步都只有两种选择，交换或者不交换。可以考虑用 dp[n][2]来做记忆化存储，dp[i][0]表示第i次不做交换的前i次交换次数，dp[i][1]表示第i次做交换的前i次交换次数。 状态转移方程的条件为nums1的当前位置a与前一个位置b，以及nums2的当前">
+<meta property="og:description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;permutations&#x2F; 力扣46题全排列回溯法 回溯法属于深度优先，回溯函数首先要写出退出条件，也就是深度达到最深时。 需要一个布尔数组保存已经搜索过的结点。 每一步操作，在调用递归函数后，都要恢复操作前的状态，这个恢复过程称为回溯。 本题对于ans的值，每一个reverse函数都会将其恢复，故最终的ans仍为空，每一次reverse递">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-10T08:44:09.000Z">
-<meta property="article:modified_time" content="2022-10-10T09:16:01.691Z">
+<meta property="article:published_time" content="2022-10-12T02:13:58.000Z">
+<meta property="article:modified_time" content="2022-10-12T02:51:15.968Z">
 <meta property="article:author" content="ranger2">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>力扣801最小交换 - Hexo</title>
+  <title>全排列 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="力扣801最小交换"></span>
+            <span id="subtitle" data-typed-text="全排列"></span>
           
         </div>
 
@@ -206,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-10 16:44" pubdate>
-          2022年10月10日 下午
+        <time datetime="2022-10-12 10:13" pubdate>
+          2022年10月12日 上午
         </time>
       </span>
     
@@ -218,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1k 字
         
       </span>
     
@@ -229,7 +229,7 @@
         
         
         
-          18 分钟
+          9 分钟
         
       </span>
     
@@ -267,34 +267,19 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">力扣801最小交换</h1>
+            <h1 style="display: none">全排列</h1>
             
             
               <div class="markdown-body">
                 
-                <h4 id="801-Minimum-Swaps-To-Make-Sequences-Increasing"><a href="#801-Minimum-Swaps-To-Make-Sequences-Increasing" class="headerlink" title="801. Minimum Swaps To Make Sequences Increasing"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-swaps-to-make-sequences-increasing/">801. Minimum Swaps To Make Sequences Increasing</a></h4><p>本题若上下数组同时从后缩短，也具有最优解，每一步都只有两种选择，交换或者不交换。可以考虑用</p>
-<p>dp[n][2]来做记忆化存储，dp[i][0]表示第i次不做交换的前i次交换次数，dp[i][1]表示第i次做交换的前i次交换次数。</p>
-<p>状态转移方程的条件为nums1的当前位置a与前一个位置b，以及nums2的当前位置c与前一个位置d。</p>
-<p>如果b&gt;a&amp;&amp;d&gt;c，此时不需要交换，但如果此时也满足b&gt;c&amp;&amp;d&gt;a，此时交换也合法。当前来看不交换为最优，但此题当前位置的最优解不一定能得到全局最优解，故此步交换的情况也应考虑到。设以下布尔值方便条件判断。</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">boolean case1 = (nums1<span class="hljs-comment">[i]</span>&gt;nums1<span class="hljs-comment">[i-1]</span>)&amp;&amp;(nums2<span class="hljs-comment">[i]</span>&gt;nums2<span class="hljs-comment">[i-1]</span>);<br>boolean case2 = (nums1<span class="hljs-comment">[i]</span>&gt;nums2<span class="hljs-comment">[i-1]</span>)&amp;&amp;(nums2<span class="hljs-comment">[i]</span>&gt;nums1<span class="hljs-comment">[i-1]</span>);<br></code></pre></td></tr></table></figure>
-
-<p>状态转移方程如下：</p>
-<ol>
-<li><p>若case1&amp;&amp;(!case2)，当前不交换，则前一步也不用不交换；当前交换，则前一步也得交换</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>;<br>dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>+1;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>若(!case1)&amp;&amp;case2，当前交换，则前一步不用交换；当前不交换，则前一步需要交换</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>+1;<br>dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>若两种条件都满足，可换也可不换，选取最小值</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span>=Math.min(dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>,dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>);<br>dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span>=Math.min(dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>,dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>)+1;<br></code></pre></td></tr></table></figure></li>
-</ol>
-<p><em><strong>总结：状态转移方程的关键在于合法状态的前后连接</strong></em></p>
-<p>动态规划代码如下：</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs inform7">class Solution &#123;<br>    public int minSwap(int<span class="hljs-comment">[]</span> nums1, int<span class="hljs-comment">[]</span> nums2) &#123;<br>        int n = nums1.length;<br>        int<span class="hljs-comment">[]</span><span class="hljs-comment">[]</span> dp = new int<span class="hljs-comment">[n]</span><span class="hljs-comment">[2]</span>;<br>        dp<span class="hljs-comment">[0]</span><span class="hljs-comment">[0]</span>=0;<br>        dp<span class="hljs-comment">[0]</span><span class="hljs-comment">[1]</span>=1;<br>        for(int i=1;i&lt;n;i++)&#123;<br>            boolean case1 = (nums1<span class="hljs-comment">[i]</span>&gt;nums1<span class="hljs-comment">[i-1]</span>)&amp;&amp;(nums2<span class="hljs-comment">[i]</span>&gt;nums2<span class="hljs-comment">[i-1]</span>);<br>            boolean case2 = (nums1<span class="hljs-comment">[i]</span>&gt;nums2<span class="hljs-comment">[i-1]</span>)&amp;&amp;(nums2<span class="hljs-comment">[i]</span>&gt;nums1<span class="hljs-comment">[i-1]</span>);<br>            if(case1&amp;&amp;(!case2))&#123;<br>                dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>;<br>                dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>+1;<br>            &#125;<br>            if((!case1)&amp;&amp;case2)&#123;<br>                dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>+1;<br>                dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span>=dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>;<br>            &#125;<br>            if(case1&amp;&amp;case2)&#123;<br>                dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span>=Math.min(dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>,dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>);<br>                dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span>=Math.min(dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[0]</span>,dp<span class="hljs-comment">[i-1]</span><span class="hljs-comment">[1]</span>)+1;<br>            &#125;<br>        &#125;<br>        return Math.min(dp<span class="hljs-comment">[n-1]</span><span class="hljs-comment">[0]</span>,dp<span class="hljs-comment">[n-1]</span><span class="hljs-comment">[1]</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>本题每一次循环用到的四个dp值具有前后衔接性，可使用4个变量作为滚动数组来优化。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs routeros">class Solution &#123;<br>    public int minSwap(int[] nums1, int[] nums2) &#123;<br>        int n = nums1.length;<br>        int <span class="hljs-attribute">a</span>=0;<br>        int <span class="hljs-attribute">b</span>=1;<br>        <span class="hljs-keyword">for</span>(int <span class="hljs-attribute">i</span>=1;i&lt;n;i++)&#123;<br>            int <span class="hljs-attribute">c</span>=0,d=0;<br>            boolean case1 = (nums1[i]&gt;nums1[i-1])&amp;&amp;(nums2[i]&gt;nums2[i-1]);<br>            boolean case2 = (nums1[i]&gt;nums2[i-1])&amp;&amp;(nums2[i]&gt;nums1[i-1]);<br>            <span class="hljs-keyword">if</span>(case1&amp;&amp;(!case2))&#123;<br>                <span class="hljs-attribute">c</span>=a;<br>                <span class="hljs-attribute">d</span>=b+1;<br>            &#125;<br>            <span class="hljs-keyword">if</span>((!case1)&amp;&amp;case2)&#123;<br>                <span class="hljs-attribute">d</span>=a+1;<br>                <span class="hljs-attribute">c</span>=b;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(case1&amp;&amp;case2)&#123;<br>                <span class="hljs-attribute">c</span>=Math.min(a,b);<br>                <span class="hljs-attribute">d</span>=Math.min(a,b)+1;<br>            &#125;<br>            <span class="hljs-attribute">a</span>=c;<br>            <span class="hljs-attribute">b</span>=d;<br>        &#125;<br>        return Math.min(a,b);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations/">https://leetcode.cn/problems/permutations/</a></p>
+<p>力扣46题全排列回溯法</p>
+<p>回溯法属于深度优先，回溯函数首先要写出退出条件，也就是深度达到最深时。</p>
+<p>需要一个布尔数组保存已经搜索过的结点。</p>
+<p>每一步操作，在调用递归函数后，都要恢复操作前的状态，这个恢复过程称为回溯。</p>
+<p>本题对于ans的值，每一个reverse函数都会将其恢复，故最终的ans仍为空，每一次reverse递归调用的前后，ans的内容都相同。</p>
+<p>Java函数传递引用类型时，传递的是指针，指针的指向不能修改，但指针指向地址的值可以修改。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">class</span> Solution &#123;<br>    <span class="hljs-built_in">public</span> List&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt; permute(<span class="hljs-type">int</span>[] nums) &#123;<br>        List&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt; res = <span class="hljs-built_in">new</span> LinkedList&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt;();<br>        List&lt;<span class="hljs-type">Integer</span>&gt; ans = <span class="hljs-built_in">new</span> LinkedList&lt;<span class="hljs-type">Integer</span>&gt;();<br>        <span class="hljs-type">int</span> n = nums.length;<br>        <span class="hljs-type">boolean</span>[] used = <span class="hljs-built_in">new</span> <span class="hljs-type">boolean</span>[n];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            used[i]=<span class="hljs-keyword">false</span>;<br>        &#125;<br>        reverse(res,ans,<span class="hljs-number">0</span>,used,n,nums);<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br><br>    private <span class="hljs-type">void</span> reverse(List&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt; res,List&lt;<span class="hljs-type">Integer</span>&gt; ans,<span class="hljs-type">int</span> depth,<span class="hljs-type">boolean</span>[] used,<span class="hljs-type">int</span> length,<span class="hljs-type">int</span>[] nums)&#123;<br>        <span class="hljs-keyword">if</span>(depth==length)&#123;<br>            res.<span class="hljs-keyword">add</span>(<span class="hljs-built_in">new</span> LinkedList(ans));//不<span class="hljs-built_in">new</span>则传的是ans的地址，最终为空<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;length;i++)&#123;<br>            <span class="hljs-keyword">if</span>(!used[i])&#123;<br>                ans.<span class="hljs-keyword">add</span>(nums[i]);<br>                used[i]=<span class="hljs-keyword">true</span>;<br>                reverse(res,ans,depth+<span class="hljs-number">1</span>,used,length,nums);<br>                ans.remove(ans.size()<span class="hljs-number">-1</span>);<br>                used[i]=<span class="hljs-keyword">false</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -313,8 +298,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>力扣801最小交换</div>
-      <div>http://example.com/2022/10/10/力扣801最小交换/</div>
+      <div>全排列</div>
+      <div>http://example.com/2022/10/12/全排列/</div>
     </div>
     <div class="license-meta">
       
@@ -326,7 +311,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月10日</div>
+          <div>2022年10月12日</div>
         </div>
       
       
@@ -358,18 +343,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/12/%E5%85%A8%E6%8E%92%E5%88%97/" title="全排列">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">全排列</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/09/%E7%94%B0%E5%BF%8C%E8%B5%9B%E9%A9%AC/" title="田忌赛马">
-                        <span class="hidden-mobile">田忌赛马</span>
+                      <a href="/2022/10/10/%E5%8A%9B%E6%89%A3801%E6%9C%80%E5%B0%8F%E4%BA%A4%E6%8D%A2/" title="力扣801最小交换">
+                        <span class="hidden-mobile">力扣801最小交换</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
