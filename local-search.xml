@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>java的HashMap</title>
+    <link href="/2022/10/12/java%E7%9A%84HashMap/"/>
+    <url>/2022/10/12/java%E7%9A%84HashMap/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>Java的HashMap在计算下标时，用的不是取模运算（%），而是与（&amp;）。因为位运算比取模运算的速度更快。如果哈希数组的长度为n，待哈希数与n-1进行与运算，得到的数在0到n-1之间。如果n为2的幂数，则n-1每一位都是1，在扩大容量时，使用移位运算在与运算时，数组的每一位都能得到利用。否则，有的位为0，与运算该位的结果永远为0，造成数组中一些位置一直得不到填充。<em><strong>故哈希表的长度为2的幂数</strong></em>。</p></li><li><p>扩容。超过loadFactor时扩容，默认0.75。hashmap默认数组大小16，当占用超过12个位置时扩容一倍。HashMap的resize十分消耗性能，若预先能估计大小，预设size能优化性能</p></li><li><p>线程不安全。hashmap使用modCount与expectedModCount版本号机制判断是否发生并发错误。对hashmap的修改会增加modCount值，操作前将modCount赋给expectedModCount，操作时判断二者是否相等。若并发线程修改了hashmap，则不等，此时报出ConcurrentModificationException。</p><p><em><strong>ConcurrentHashMap线程安全</strong></em></p></li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>全排列</title>
     <link href="/2022/10/12/%E5%85%A8%E6%8E%92%E5%88%97/"/>
     <url>/2022/10/12/%E5%85%A8%E6%8E%92%E5%88%97/</url>
