@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>第k个语法符号递归</title>
+    <link href="/2022/10/20/%E7%AC%ACk%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7%E9%80%92%E5%BD%92/"/>
+    <url>/2022/10/20/%E7%AC%ACk%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7%E9%80%92%E5%BD%92/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.cn/problems/k-th-symbol-in-grammar/">https://leetcode.cn/problems/k-th-symbol-in-grammar/</a></p><img src="/2022/10/20/%E7%AC%ACk%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7%E9%80%92%E5%BD%92/p1.png" class="" title="图片引用方法一"><p>找规律</p><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span>n=<span class="hljs-number">1</span><br><span class="hljs-symbol">01 </span>n=<span class="hljs-number">2</span><br><span class="hljs-symbol">0110 </span>n=<span class="hljs-number">3</span><br><span class="hljs-symbol">01101001 </span>n=<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure><p>n每增大1，前一半和n-1相同，后一半相反。故可以使用递归。</p><ul><li>如果k为1，返回0，退出条件</li><li>如果k超出n对应的size的一半，与n-1的k-size&#x2F;2相反</li><li>如果小于等于一半，与n-1的第k位相同</li></ul><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">public <span class="hljs-built_in">int</span> kth<span class="hljs-constructor">Grammar(<span class="hljs-params">int</span> <span class="hljs-params">n</span>, <span class="hljs-params">int</span> <span class="hljs-params">k</span>)</span> &#123;<br>    <span class="hljs-keyword">if</span>(k==<span class="hljs-number">1</span>) return <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(k&gt;(<span class="hljs-number">1</span>&lt;&lt;(n-<span class="hljs-number">2</span>)))&#123;<br>        return <span class="hljs-number">1</span>-kth<span class="hljs-constructor">Grammar(<span class="hljs-params">n</span>-1,<span class="hljs-params">k</span>-(1&lt;&lt;(<span class="hljs-params">n</span>-2)</span>));<br>    &#125;<br>    return kth<span class="hljs-constructor">Grammar(<span class="hljs-params">n</span>-1,<span class="hljs-params">k</span>)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>二部图问题1</title>
     <link href="/2022/10/16/%E4%BA%8C%E9%83%A8%E5%9B%BE%E9%97%AE%E9%A2%981/"/>
     <url>/2022/10/16/%E4%BA%8C%E9%83%A8%E5%9B%BE%E9%97%AE%E9%A2%981/</url>
