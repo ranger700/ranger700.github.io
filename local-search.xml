@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>java重写sort排序</title>
+    <link href="/2022/10/22/java%E9%87%8D%E5%86%99sort%E6%8E%92%E5%BA%8F/"/>
+    <url>/2022/10/22/java%E9%87%8D%E5%86%99sort%E6%8E%92%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<p>将a[i]与b[i]绑定，然后根据b数组的排序结果对a数组进行排序；</p><p>先以二维数组nums的形式保存二元组a[i]-b[i]，nums[i][0]&#x3D;a[i],nums[i][1]&#x3D;b[i];</p><p>然后重写Arrays.sort的comparator方法。</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">int</span> n=a.length;<br>      <span class="hljs-keyword">int</span>[][] nums=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n][];<br>      <span class="hljs-comment">//nums可认为是二元组</span><br>      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>          nums[i]=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;a[i],b[i]&#125;;<br>      &#125;<br>      <span class="hljs-comment">//对三元组的排序</span><br>      Arrays.<span class="hljs-keyword">sort</span>(jobs,(a,b)-&gt;(a[<span class="hljs-number">1</span>]-b[<span class="hljs-number">1</span>]));<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>二分查找</title>
     <link href="/2022/10/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     <url>/2022/10/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
