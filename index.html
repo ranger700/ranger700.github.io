@@ -223,6 +223,39 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/" target="_self">
+          最大合法括号数
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/" target="_self">
+        <div>
+          https://leetcode.cn/problems/longest-valid-parentheses/   使用dp[i]表示以第i个括号作为结尾的最大合法括号数，关键在于合法状态的连接，类似于leetcode801  以（ 结尾一定不合法，为0 以 ）结尾，若上一个是（ ，直接与dp[i-2]相连，再加上当前增益2；若上一个是 ），则上一个具有自己的合法括号数dp[i-1]，i-dp[i
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-11-09 13:56" pubdate>
+              2022-11-09
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/11/07/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/" target="_self">
           卡特兰数
         </a>
@@ -241,6 +274,39 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2022-11-07 14:31" pubdate>
               2022-11-07
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/25/%E6%9C%80%E7%9F%AD%E6%A1%A5/" target="_self">
+          最短桥
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/25/%E6%9C%80%E7%9F%AD%E6%A1%A5/" target="_self">
+        <div>
+          https://leetcode.cn/problems/shortest-bridge/   广度优先，访问过的数设为-1，每次扩散一圈，若找到1则返回，找到0则设为-1。 使用队列的广度优先，每次访问完一圈才能进行第二圈而不是出列入列交叉进行，此时需要一个辅助队列记录。 12345678910111213141516171819202122232425262728293031323334353
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-25 22:36" pubdate>
+              2022-10-25
             </time>
           </div>
         
@@ -472,72 +538,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2022-10-13 21:33" pubdate>
               2022-10-13
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/10/12/java%E7%9A%84HashMap/" target="_self">
-          java的HashMap
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/12/java%E7%9A%84HashMap/" target="_self">
-        <div>
-          Java的HashMap在计算下标时，用的不是取模运算（%），而是与（&amp;）。因为位运算比取模运算的速度更快。如果哈希数组的长度为n，待哈希数与n-1进行与运算，得到的数在0到n-1之间。如果n为2的幂数，则n-1每一位都是1，在扩大容量时，使用移位运算在与运算时，数组的每一位都能得到利用。否则，有的位为0，与运算该位的结果永远为0，造成数组中一些位置一直得不到填充。故哈希表的长度为2的幂
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-12 14:16" pubdate>
-              2022-10-12
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/10/12/%E5%85%A8%E6%8E%92%E5%88%97/" target="_self">
-          全排列
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/12/%E5%85%A8%E6%8E%92%E5%88%97/" target="_self">
-        <div>
-          https://leetcode.cn/problems/permutations/ 力扣46题全排列回溯法 回溯法属于深度优先，回溯函数首先要写出退出条件，也就是深度达到最深时。 需要一个布尔数组保存已经搜索过的结点。 每一步操作，在调用递归函数后，都要恢复操作前的状态，这个恢复过程称为回溯。 本题对于ans的值，每一个reverse函数都会将其恢复，故最终的ans仍为空，每一次reverse递
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-12 10:13" pubdate>
-              2022-10-12
             </time>
           </div>
         

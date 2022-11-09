@@ -16,19 +16,23 @@
   <meta name="author" content="ranger2">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="卡特兰数">
-<meta property="og:url" content="http://example.com/2022/11/07/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/index.html">
+    <meta name="description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;longest-valid-parentheses&#x2F;   使用dp[i]表示以第i个括号作为结尾的最大合法括号数，关键在于合法状态的连接，类似于leetcode801  以（ 结尾一定不合法，为0 以 ）结尾，若上一个是（ ，直接与dp[i-2]相连，再加上当前增益2；若上一个是 ），则上一个具有自己的合法括号数dp[i-1]，i-dp[i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最大合法括号数">
+<meta property="og:url" content="http://example.com/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/index.html">
 <meta property="og:site_name" content="Ranger">
+<meta property="og:description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;longest-valid-parentheses&#x2F;   使用dp[i]表示以第i个括号作为结尾的最大合法括号数，关键在于合法状态的连接，类似于leetcode801  以（ 结尾一定不合法，为0 以 ）结尾，若上一个是（ ，直接与dp[i-2]相连，再加上当前增益2；若上一个是 ），则上一个具有自己的合法括号数dp[i-1]，i-dp[i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-07T06:31:07.000Z">
-<meta property="article:modified_time" content="2022-11-07T06:31:07.856Z">
+<meta property="og:image" content="http://example.com/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/test1.png">
+<meta property="article:published_time" content="2022-11-09T05:56:04.000Z">
+<meta property="article:modified_time" content="2022-11-09T06:11:49.622Z">
 <meta property="article:author" content="ranger2">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/test1.png">
   
   
   
-  <title>卡特兰数 - Ranger</title>
+  <title>最大合法括号数 - Ranger</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -193,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="卡特兰数"></span>
+            <span id="subtitle" data-typed-text="最大合法括号数"></span>
           
         </div>
 
@@ -204,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-07 14:31" pubdate>
-          2022年11月7日 下午
+        <time datetime="2022-11-09 13:56" pubdate>
+          2022年11月9日 下午
         </time>
       </span>
     
@@ -216,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1k 字
         
       </span>
     
@@ -227,7 +231,7 @@
         
         
         
-          1 分钟
+          9 分钟
         
       </span>
     
@@ -265,12 +269,27 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">卡特兰数</h1>
+            <h1 style="display: none">最大合法括号数</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-valid-parentheses/">https://leetcode.cn/problems/longest-valid-parentheses/</a></p>
+<img src="/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/test1.png" srcset="/img/loading.gif" lazyload class="" title="图片引用方法一">
+
+<p>使用dp[i]表示以第i个括号作为结尾的最大合法括号数，关键在于合法状态的连接，类似于leetcode801</p>
+<ul>
+<li>以（ 结尾一定不合法，为0</li>
+<li>以 ）结尾，若上一个是（ ，直接与dp[i-2]相连，再加上当前增益2；若上一个是 ），则上一个具有自己的合法括号数dp[i-1]，i-dp[i-1]-1是上一个应该相连的dp下标，并加上当前增益dp[i-1]+2</li>
+</ul>
+<p>Java求数组最大值可用下列函数，本题最优是维护max，每一轮更新</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">Arrays<span class="hljs-selector-class">.stream</span>(dp)<span class="hljs-selector-class">.max</span>()<span class="hljs-selector-class">.getAsInt</span>();<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">class</span> Solution &#123;<br>    public <span class="hljs-built_in">int</span> longest<span class="hljs-constructor">ValidParentheses(String <span class="hljs-params">s</span>)</span> &#123;<br>        <span class="hljs-built_in">int</span> n=s.length<span class="hljs-literal">()</span>;<br>        <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">1</span>) return <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-comment">//dp[i]表示以i结尾最大合法括号数，i-dp[i-1]-1表示上一个暂未合法的字符</span><br>        <span class="hljs-built_in">int</span><span class="hljs-literal">[]</span> dp=<span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span><span class="hljs-literal">[<span class="hljs-identifier">n</span>]</span>;<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Arrays</span>.</span></span>fill(dp,<span class="hljs-number">0</span>);<br>        dp<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">char</span><span class="hljs-constructor">At(0)</span>==<span class="hljs-character">&#x27;(&#x27;</span>&amp;&amp;s.<span class="hljs-built_in">char</span><span class="hljs-constructor">At(1)</span>==<span class="hljs-character">&#x27;)&#x27;</span>)&#123;<br>            dp<span class="hljs-literal">[<span class="hljs-number">1</span>]</span>=<span class="hljs-number">2</span>;<br>            ans=<span class="hljs-number">2</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">2</span>;i&lt;n;i++)&#123;<br>            <span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">char</span><span class="hljs-constructor">At(<span class="hljs-params">i</span>)</span>==<span class="hljs-character">&#x27;)&#x27;</span>)&#123;<br>                <span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">char</span><span class="hljs-constructor">At(<span class="hljs-params">i</span>-1)</span>==<span class="hljs-character">&#x27;(&#x27;</span>)&#123;<br>                    dp<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span>=dp<span class="hljs-literal">[<span class="hljs-identifier">i</span>-<span class="hljs-number">2</span>]</span>+<span class="hljs-number">2</span>;<br>                &#125;<span class="hljs-keyword">else</span>&#123;<br>                    <span class="hljs-comment">//上一个非法的括号下标</span><br>                    <span class="hljs-built_in">int</span> l=i-dp<span class="hljs-literal">[<span class="hljs-identifier">i</span>-<span class="hljs-number">1</span>]</span>-<span class="hljs-number">1</span>;<br>                    <span class="hljs-comment">//设为合法，并与之前相连</span><br>                    <span class="hljs-keyword">if</span>((l&gt;=<span class="hljs-number">0</span>)&amp;&amp;(s.<span class="hljs-built_in">char</span><span class="hljs-constructor">At(<span class="hljs-params">l</span>)</span>==<span class="hljs-character">&#x27;(&#x27;</span>))&#123;<br>                        <span class="hljs-keyword">if</span>(l-<span class="hljs-number">1</span>&gt;=<span class="hljs-number">0</span>)&#123;<br>                            dp<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span>=dp<span class="hljs-literal">[<span class="hljs-identifier">l</span>-<span class="hljs-number">1</span>]</span>+i-l+<span class="hljs-number">1</span>;<br>                        &#125;<span class="hljs-keyword">else</span>&#123;<br>                            dp<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span>=i-l+<span class="hljs-number">1</span>;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            &#125;<br>            ans=<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>max(ans,dp<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span>);<br>        &#125;<br>        return ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
@@ -287,8 +306,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>卡特兰数</div>
-      <div>http://example.com/2022/11/07/卡特兰数/</div>
+      <div>最大合法括号数</div>
+      <div>http://example.com/2022/11/09/最大合法括号数/</div>
     </div>
     <div class="license-meta">
       
@@ -300,7 +319,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月7日</div>
+          <div>2022年11月9日</div>
         </div>
       
       
@@ -332,18 +351,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/" title="最大合法括号数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">最大合法括号数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/25/%E6%9C%80%E7%9F%AD%E6%A1%A5/" title="最短桥">
-                        <span class="hidden-mobile">最短桥</span>
+                      <a href="/2022/11/07/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/" title="卡特兰数">
+                        <span class="hidden-mobile">卡特兰数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
