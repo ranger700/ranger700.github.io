@@ -16,21 +16,23 @@
   <meta name="author" content="ranger2">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253class Trie &amp;#123;    private Trie[] children;    private boolean isEnd;    public Trie() &amp;#123;">
+    <meta name="description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;course-schedule&#x2F;   方法一：dfspre[i]记录第i门课的前驱课程。 从一个点出发，需用一个状态记录该点正在访问，若子dfs又访问到该点，则冲突。子dfs若找不到自己，则该点不会发生冲突，用一个状态记录该点作为起点不会冲突。还要一个状态记录该点尚未访问，因此一共需要三个状态。 0表示未访问，1表示正在访问，2表示访问结束">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字典树">
-<meta property="og:url" content="http://example.com/2022/11/16/%E5%AD%97%E5%85%B8%E6%A0%91/index.html">
+<meta property="og:title" content="课程表拓扑问题">
+<meta property="og:url" content="http://example.com/2022/11/15/%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%8B%93%E6%89%91%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Ranger">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253class Trie &amp;#123;    private Trie[] children;    private boolean isEnd;    public Trie() &amp;#123;">
+<meta property="og:description" content="https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;course-schedule&#x2F;   方法一：dfspre[i]记录第i门课的前驱课程。 从一个点出发，需用一个状态记录该点正在访问，若子dfs又访问到该点，则冲突。子dfs若找不到自己，则该点不会发生冲突，用一个状态记录该点作为起点不会冲突。还要一个状态记录该点尚未访问，因此一共需要三个状态。 0表示未访问，1表示正在访问，2表示访问结束">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-16T07:41:48.000Z">
-<meta property="article:modified_time" content="2022-11-16T07:43:46.156Z">
+<meta property="og:image" content="http://example.com/2022/11/15/%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%8B%93%E6%89%91%E9%97%AE%E9%A2%98/p1.png">
+<meta property="article:published_time" content="2022-11-15T04:50:37.000Z">
+<meta property="article:modified_time" content="2022-11-16T07:45:30.704Z">
 <meta property="article:author" content="ranger2">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/11/15/%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%8B%93%E6%89%91%E9%97%AE%E9%A2%98/p1.png">
   
   
   
-  <title>字典树 - Ranger</title>
+  <title>课程表拓扑问题 - Ranger</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="字典树"></span>
+            <span id="subtitle" data-typed-text="课程表拓扑问题"></span>
           
         </div>
 
@@ -206,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-16 15:41" pubdate>
-          2022年11月16日 下午
+        <time datetime="2022-11-15 12:50" pubdate>
+          2022年11月15日 下午
         </time>
       </span>
     
@@ -218,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.3k 字
         
       </span>
     
@@ -229,7 +231,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -267,12 +269,27 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">字典树</h1>
+            <h1 style="display: none">课程表拓扑问题</h1>
             
             
               <div class="markdown-body">
                 
-                <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs routeros">class Trie &#123;<br><br>    private Trie[] children;<br>    private boolean isEnd;<br><br>    public Trie() &#123;<br>        <span class="hljs-attribute">children</span>=new Trie[26];<br>        <span class="hljs-attribute">isEnd</span>=<span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    public void insert(String word) &#123;<br>        Trie <span class="hljs-attribute">node</span>=this;<br>        int <span class="hljs-attribute">n</span>=word.length();<br>        <span class="hljs-keyword">for</span>(int <span class="hljs-attribute">i</span>=0;i&lt;n;i++)&#123;<br>            int <span class="hljs-attribute">index</span>=word.charAt(i)-&#x27;a&#x27;;<br>            <span class="hljs-keyword">if</span>(node.children[index]==<span class="hljs-literal">null</span>)&#123;<br>                node.children[index]=new Trie();<br>            &#125;<br>            <span class="hljs-attribute">node</span>=node.children[index];<br>        &#125;<br>        node.<span class="hljs-attribute">isEnd</span>=<span class="hljs-literal">true</span>;<br>    &#125;<br>    <br>    public boolean search(String word) &#123;<br>        int <span class="hljs-attribute">n</span>=word.length();<br>        Trie <span class="hljs-attribute">node</span>=children[word.charAt(0)-<span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>        int <span class="hljs-attribute">index</span>=1;<br>        <span class="hljs-keyword">while</span>(index&lt;n&amp;&amp;node!=<span class="hljs-literal">null</span>)&#123;<br>            int <span class="hljs-attribute">child</span>=word.charAt(index)-&#x27;a&#x27;;<br>            <span class="hljs-attribute">node</span>=node.children[child];<br>            index++;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>         <span class="hljs-keyword">if</span>(<span class="hljs-attribute">index</span>==n&amp;&amp;node.isEnd==true) return <span class="hljs-literal">true</span>;<br>         return <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    public boolean startsWith(String prefix) &#123;<br>        int <span class="hljs-attribute">n</span>=prefix.length();<br>        Trie <span class="hljs-attribute">node</span>=children[prefix.charAt(0)-<span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>        int <span class="hljs-attribute">index</span>=1;<br>        <span class="hljs-keyword">while</span>(index&lt;n&amp;&amp;node!=<span class="hljs-literal">null</span>)&#123;<br>            int <span class="hljs-attribute">child</span>=prefix.charAt(index)-&#x27;a&#x27;;<br>            <span class="hljs-attribute">node</span>=node.children[child];<br>            index++;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>         <span class="hljs-keyword">if</span>(<span class="hljs-attribute">index</span>==n) return <span class="hljs-literal">true</span>;<br>         return <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedule/">https://leetcode.cn/problems/course-schedule/</a></p>
+<img src="/2022/11/15/%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%8B%93%E6%89%91%E9%97%AE%E9%A2%98/p1.png" srcset="/img/loading.gif" lazyload class="" title="图片引用方法一">
+
+<h3 id="方法一：dfs"><a href="#方法一：dfs" class="headerlink" title="方法一：dfs"></a>方法一：dfs</h3><p>pre[i]记录第i门课的前驱课程。</p>
+<p>从一个点出发，需用一个状态记录该点正在访问，若子dfs又访问到该点，则冲突。子dfs若找不到自己，则该点不会发生冲突，用一个状态记录该点作为起点不会冲突。还要一个状态记录该点尚未访问，因此一共需要三个状态。</p>
+<p>0表示未访问，1表示正在访问，2表示访问结束。</p>
+<p>在dfs中</p>
+<ul>
+<li><p>访问到状态为1的点，则冲突。</p>
+</li>
+<li><p>访问到状态为2的点，因为该点作为起点不会冲突，因此无需继续访问。</p>
+</li>
+<li><p>访问到状态为0的点，对其所有前驱进行dfs</p>
+</li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">class</span> Solution &#123;<br><br>    private <span class="hljs-type">boolean</span> <span class="hljs-keyword">valid</span>=<span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">boolean</span> canFinish(<span class="hljs-type">int</span> numCourses, <span class="hljs-type">int</span>[][] prerequisites) &#123;<br>        <span class="hljs-type">int</span> n=prerequisites.length;<br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        <span class="hljs-type">int</span>[] visited=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[numCourses];<br>        Arrays.fill(visited,<span class="hljs-number">0</span>);<br>        List&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt; pre=<span class="hljs-built_in">new</span> ArrayList&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt;();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;numCourses;i++)&#123;<br>            List&lt;<span class="hljs-type">Integer</span>&gt; <span class="hljs-keyword">temp</span>=<span class="hljs-built_in">new</span> ArrayList&lt;<span class="hljs-type">Integer</span>&gt;();<br>            pre.<span class="hljs-keyword">add</span>(<span class="hljs-keyword">temp</span>);<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            pre.<span class="hljs-keyword">get</span>(prerequisites[i][<span class="hljs-number">0</span>]).<span class="hljs-keyword">add</span>(prerequisites[i][<span class="hljs-number">1</span>]);<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;numCourses&amp;&amp;<span class="hljs-keyword">valid</span>;i++)&#123;<br>            <span class="hljs-keyword">if</span>(visited[i]==<span class="hljs-number">0</span>)&#123;<br>                dfs(pre,i,visited);<br>                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">valid</span>==<span class="hljs-keyword">false</span>)&#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">valid</span>;<br>    &#125;<br><br>    private <span class="hljs-type">void</span> dfs(List&lt;List&lt;<span class="hljs-type">Integer</span>&gt;&gt; pre,<span class="hljs-type">int</span> <span class="hljs-keyword">start</span>,<span class="hljs-type">int</span>[] visited)&#123;<br>        <span class="hljs-keyword">if</span>(visited[<span class="hljs-keyword">start</span>]==<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">valid</span>=<span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(visited[<span class="hljs-keyword">start</span>]==<span class="hljs-number">2</span>)&#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        visited[<span class="hljs-keyword">start</span>]=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">Integer</span> i:pre.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">start</span>))&#123;<br>            dfs(pre,i,visited);<br>            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">valid</span>==<span class="hljs-keyword">false</span>) <span class="hljs-keyword">return</span>;<br>            <br>        &#125;<br>        visited[<span class="hljs-keyword">start</span>]=<span class="hljs-number">2</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -291,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>字典树</div>
-      <div>http://example.com/2022/11/16/字典树/</div>
+      <div>课程表拓扑问题</div>
+      <div>http://example.com/2022/11/15/课程表拓扑问题/</div>
     </div>
     <div class="license-meta">
       
@@ -304,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月16日</div>
+          <div>2022年11月15日</div>
         </div>
       
       
@@ -336,12 +353,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/11/16/%E5%AD%97%E5%85%B8%E6%A0%91/" title="字典树">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">字典树</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/15/%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%8B%93%E6%89%91%E9%97%AE%E9%A2%98/" title="课程表拓扑问题">
-                        <span class="hidden-mobile">课程表拓扑问题</span>
+                      <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A0%88%E9%81%8D%E5%8E%86/" title="二叉树的栈遍历">
+                        <span class="hidden-mobile">二叉树的栈遍历</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
