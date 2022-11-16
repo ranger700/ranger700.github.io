@@ -16,23 +16,21 @@
   <meta name="author" content="ranger2">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关键：在while循环开始时，栈中弹出的元素的左子树已经访问结束 中序遍历https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;binary-tree-inorder-traversal&#x2F; 1234567891011121314151617181920212223242526class Solution &amp;#123;    public List&lt;Integer&gt; inorderT">
+    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253class Trie &amp;#123;    private Trie[] children;    private boolean isEnd;    public Trie() &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的栈遍历">
-<meta property="og:url" content="http://example.com/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A0%88%E9%81%8D%E5%8E%86/index.html">
+<meta property="og:title" content="字典树">
+<meta property="og:url" content="http://example.com/2022/11/16/%E5%AD%97%E5%85%B8%E6%A0%91/index.html">
 <meta property="og:site_name" content="Ranger">
-<meta property="og:description" content="关键：在while循环开始时，栈中弹出的元素的左子树已经访问结束 中序遍历https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;binary-tree-inorder-traversal&#x2F; 1234567891011121314151617181920212223242526class Solution &amp;#123;    public List&lt;Integer&gt; inorderT">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253class Trie &amp;#123;    private Trie[] children;    private boolean isEnd;    public Trie() &amp;#123;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-10T06:16:52.000Z">
-<meta property="article:modified_time" content="2022-11-10T09:15:46.596Z">
+<meta property="article:published_time" content="2022-11-16T07:41:48.000Z">
+<meta property="article:modified_time" content="2022-11-16T07:43:46.156Z">
 <meta property="article:author" content="ranger2">
-<meta property="article:tag" content="binaryTree">
-<meta property="article:tag" content="stack">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>二叉树的栈遍历 - Ranger</title>
+  <title>字典树 - Ranger</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="二叉树的栈遍历"></span>
+            <span id="subtitle" data-typed-text="字典树"></span>
           
         </div>
 
@@ -208,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-10 14:16" pubdate>
-          2022年11月10日 下午
+        <time datetime="2022-11-16 15:41" pubdate>
+          2022年11月16日 下午
         </time>
       </span>
     
@@ -220,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.2k 字
         
       </span>
     
@@ -231,7 +229,7 @@
         
         
         
-          13 分钟
+          10 分钟
         
       </span>
     
@@ -269,18 +267,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">二叉树的栈遍历</h1>
+            <h1 style="display: none">字典树</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>关键：在while循环开始时，栈中弹出的元素的左子树已经访问结束</strong></p>
-<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-inorder-traversal/">https://leetcode.cn/problems/binary-tree-inorder-traversal/</a></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">class</span> Solution &#123;<br>    <span class="hljs-built_in">public</span> List&lt;<span class="hljs-type">Integer</span>&gt; inorderTraversal(TreeNode root) &#123;<br>        List&lt;<span class="hljs-type">Integer</span>&gt; ans=<span class="hljs-built_in">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> ans;<br>        Deque&lt;TreeNode&gt; que = <span class="hljs-built_in">new</span> ArrayDeque&lt;&gt;();<br>        que.addLast(root);<br>        root=root.left;<br>        <span class="hljs-keyword">while</span>(root!=<span class="hljs-keyword">null</span>)&#123;<br>            que.<span class="hljs-keyword">add</span>(root);<br>            root=root.left;<br>        &#125;<br>        <span class="hljs-keyword">while</span>(!que.isEmpty())&#123;<br>            //弹出的元素的左子树已经访问完毕<br>            TreeNode <span class="hljs-keyword">temp</span>=que.pollLast();<br>            //访问自己<br>            ans.<span class="hljs-keyword">add</span>(<span class="hljs-keyword">temp</span>.val);<br>            //访问右子树<br>            <span class="hljs-keyword">temp</span>=<span class="hljs-keyword">temp</span>.right;<br>            <span class="hljs-keyword">while</span>(<span class="hljs-keyword">temp</span>!=<span class="hljs-keyword">null</span>)&#123;<br>                que.addLast(<span class="hljs-keyword">temp</span>);<br>                <span class="hljs-keyword">temp</span>=<span class="hljs-keyword">temp</span>.left;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/">https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/</a></p>
-<p>将二叉树转为先序遍历的链表</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">class</span> Solution &#123;<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> flatten(TreeNode root) &#123;<br>        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-keyword">if</span>(root.left==<span class="hljs-keyword">null</span>&amp;&amp;root.right==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;<br>        //访问根，根入栈，循环访问左子树，无左，弹出，访问右子树<br>        Deque&lt;TreeNode&gt; que=<span class="hljs-built_in">new</span> ArrayDeque&lt;&gt;();<br>        List&lt;TreeNode&gt; ans=<span class="hljs-built_in">new</span> ArrayList&lt;&gt;();<br>        TreeNode last=root;<br>        //预处理，以便在<span class="hljs-keyword">while</span>循环开始时左边已经全部访问<br>        que.addLast(root);<br>        ans.<span class="hljs-keyword">add</span>(root);<br>        TreeNode <span class="hljs-keyword">temp</span>=root;<br>        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">temp</span>.left!=<span class="hljs-keyword">null</span>)&#123;<br>            <span class="hljs-keyword">temp</span>=<span class="hljs-keyword">temp</span>.left;<br>            que.addLast(<span class="hljs-keyword">temp</span>);<br>            ans.<span class="hljs-keyword">add</span>(<span class="hljs-keyword">temp</span>);<br>        &#125;<br>        <span class="hljs-keyword">while</span>(!que.isEmpty())&#123;<br>            <span class="hljs-keyword">temp</span>=que.pollLast();<br>            <span class="hljs-keyword">temp</span>=<span class="hljs-keyword">temp</span>.right;<br>            <span class="hljs-keyword">while</span>(<span class="hljs-keyword">temp</span>!=<span class="hljs-keyword">null</span>)&#123;<br>                que.addLast(<span class="hljs-keyword">temp</span>);<br>                ans.<span class="hljs-keyword">add</span>(<span class="hljs-keyword">temp</span>);<br>                <span class="hljs-keyword">temp</span>=<span class="hljs-keyword">temp</span>.left;<br>            &#125;<br>        &#125;<br>        root.left=<span class="hljs-keyword">null</span>;<br>        root.right=ans.<span class="hljs-keyword">get</span>(<span class="hljs-number">1</span>);<br>        TreeNode l,r;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;ans.size()<span class="hljs-number">-1</span>;i++)&#123;<br>            l=ans.<span class="hljs-keyword">get</span>(i);<br>            r=ans.<span class="hljs-keyword">get</span>(i+<span class="hljs-number">1</span>);<br>            l.left=<span class="hljs-keyword">null</span>;<br>            l.right=r;<br>            r.left=<span class="hljs-keyword">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs routeros">class Trie &#123;<br><br>    private Trie[] children;<br>    private boolean isEnd;<br><br>    public Trie() &#123;<br>        <span class="hljs-attribute">children</span>=new Trie[26];<br>        <span class="hljs-attribute">isEnd</span>=<span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    public void insert(String word) &#123;<br>        Trie <span class="hljs-attribute">node</span>=this;<br>        int <span class="hljs-attribute">n</span>=word.length();<br>        <span class="hljs-keyword">for</span>(int <span class="hljs-attribute">i</span>=0;i&lt;n;i++)&#123;<br>            int <span class="hljs-attribute">index</span>=word.charAt(i)-&#x27;a&#x27;;<br>            <span class="hljs-keyword">if</span>(node.children[index]==<span class="hljs-literal">null</span>)&#123;<br>                node.children[index]=new Trie();<br>            &#125;<br>            <span class="hljs-attribute">node</span>=node.children[index];<br>        &#125;<br>        node.<span class="hljs-attribute">isEnd</span>=<span class="hljs-literal">true</span>;<br>    &#125;<br>    <br>    public boolean search(String word) &#123;<br>        int <span class="hljs-attribute">n</span>=word.length();<br>        Trie <span class="hljs-attribute">node</span>=children[word.charAt(0)-<span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>        int <span class="hljs-attribute">index</span>=1;<br>        <span class="hljs-keyword">while</span>(index&lt;n&amp;&amp;node!=<span class="hljs-literal">null</span>)&#123;<br>            int <span class="hljs-attribute">child</span>=word.charAt(index)-&#x27;a&#x27;;<br>            <span class="hljs-attribute">node</span>=node.children[child];<br>            index++;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>         <span class="hljs-keyword">if</span>(<span class="hljs-attribute">index</span>==n&amp;&amp;node.isEnd==true) return <span class="hljs-literal">true</span>;<br>         return <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>    public boolean startsWith(String prefix) &#123;<br>        int <span class="hljs-attribute">n</span>=prefix.length();<br>        Trie <span class="hljs-attribute">node</span>=children[prefix.charAt(0)-<span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>        int <span class="hljs-attribute">index</span>=1;<br>        <span class="hljs-keyword">while</span>(index&lt;n&amp;&amp;node!=<span class="hljs-literal">null</span>)&#123;<br>            int <span class="hljs-attribute">child</span>=prefix.charAt(index)-&#x27;a&#x27;;<br>            <span class="hljs-attribute">node</span>=node.children[child];<br>            index++;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-attribute">node</span>==null) return <span class="hljs-literal">false</span>;<br>         <span class="hljs-keyword">if</span>(<span class="hljs-attribute">index</span>==n) return <span class="hljs-literal">true</span>;<br>         return <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -291,15 +283,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/binaryTree/">#binaryTree</a>
-      
-        <a href="/tags/stack/">#stack</a>
-      
-    </div>
-  
 </div>
 
 
@@ -308,8 +291,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>二叉树的栈遍历</div>
-      <div>http://example.com/2022/11/10/二叉树的栈遍历/</div>
+      <div>字典树</div>
+      <div>http://example.com/2022/11/16/字典树/</div>
     </div>
     <div class="license-meta">
       
@@ -321,7 +304,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月10日</div>
+          <div>2022年11月16日</div>
         </div>
       
       
@@ -353,18 +336,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/16/%E5%AD%97%E5%85%B8%E6%A0%91/" title="字典树">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">字典树</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/09/%E6%9C%80%E5%A4%A7%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7%E6%95%B0/" title="最大合法括号数">
-                        <span class="hidden-mobile">最大合法括号数</span>
+                      <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A0%88%E9%81%8D%E5%8E%86/" title="二叉树的栈遍历">
+                        <span class="hidden-mobile">二叉树的栈遍历</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
