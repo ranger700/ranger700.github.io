@@ -223,6 +223,90 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2023/01/03/0-1%E8%83%8C%E5%8C%85/" target="_self">
+          0-1背包
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/01/03/0-1%E8%83%8C%E5%8C%85/" target="_self">
+        <div>
+          dfs  1234567891011121314151617181920class Solution &#123;    int ans=0;    public int findTargetSumWays(int[] nums, int target) &#123;        dfs(nums,target,nums.length,0,0);        return ans;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-01-03 14:21" pubdate>
+              2023-01-03
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/dp/">#dp</a>
+            
+              <a href="/tags/dfs/">#dfs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/11/17/%E6%97%A0%E5%BA%8F%E6%95%B0%E7%BB%84%E7%AC%ACk%E5%A4%A7%E7%9A%84%E6%95%B0/" target="_self">
+          无序数组第k大的数
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/17/%E6%97%A0%E5%BA%8F%E6%95%B0%E7%BB%84%E7%AC%ACk%E5%A4%A7%E7%9A%84%E6%95%B0/" target="_self">
+        <div>
+          https://leetcode.cn/problems/kth-largest-element-in-an-array/   方法一：priorityqueueJava优先队列的底层是动态数组，数组的扩容会降低性能，可以类似于hashmap，初始化容量提高性能。 priorityqueue默认小根堆，想要大根堆需重写compare或lambda表达式， 如下： 1PriorityQueue&lt
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-11-17 14:04" pubdate>
+              2022-11-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/heap/">#heap</a>
+            
+              <a href="/tags/priorityqueue/">#priorityqueue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/11/16/%E5%AD%97%E5%85%B8%E6%A0%91/" target="_self">
           字典树
         </a>
@@ -513,77 +597,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/10/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" target="_self">
-          二分查找
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/22/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" target="_self">
-        <div>
-          对单增数组，返回下标在l到r之间，从右到左第一个小于等于target数的下标 123456789101112131415161718//找到nums中从r到l第一个小于等于target的数的下标，若没有则返回-1    private int bs(int[] nums,int l,int r,int target)&#123;        while(l+1&lt;r)&#123;
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-22 21:57" pubdate>
-              2022-10-22
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/10/21/%E8%82%A1%E7%A5%A8%E8%B7%A8%E5%BA%A6%E9%80%92%E5%BD%92or%E5%8D%95%E8%B0%83%E6%A0%88/" target="_self">
-          股票跨度-递归or单调栈
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/21/%E8%82%A1%E7%A5%A8%E8%B7%A8%E5%BA%A6%E9%80%92%E5%BD%92or%E5%8D%95%E8%B0%83%E6%A0%88/" target="_self">
-        <div>
-          https://leetcode.cn/problems/online-stock-span/   方法一：递归预处理：用dp数组保存连续递增的次数，用nums数组保存price 递归：对当前下标，如果大于等于前一个数，要找到大于等于前一个数的前一个数，dp[index-1]为前一个数所拥有的连续递增次数，故index-dp[index-1]为大于等于前一个数的前一个数的下标 1234567891
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-21 13:57" pubdate>
-              2022-10-21
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
