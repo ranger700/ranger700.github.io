@@ -223,6 +223,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2023/02/01/%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2%E4%B8%8E%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2/" target="_self">
+          最大矩形与最大正方形
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/02/01/%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2%E4%B8%8E%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2/" target="_self">
+        <div>
+          最大矩形   以每一个点为起点，往左找到左边连续大于等于该数的个数，往右找到右边连续大于等于该数的个数。故想到使用单调栈 本题使用最大栈，难点在于判断个数的逻辑。为方便计算个数，单调栈中保存的是下标，结合heights数组判断大小。加入一个数时，先弹出栈顶大于等于它的数。 如果全部弹出，说明之前所有数都比该数大，pre[i]&#x3D;0 否则，此时栈顶数一定小于该数，栈顶后的数都大于等于该数，栈
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-01 09:35" pubdate>
+              2023-02-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/dp/">#dp</a>
+            
+              <a href="/tags/monotone-stack/">#monotone stack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2023/01/03/0-1%E8%83%8C%E5%8C%85/" target="_self">
           0-1背包
         </a>
@@ -554,39 +596,6 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2022-10-22 22:09" pubdate>
-              2022-10-22
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/10/22/java%E9%87%8D%E5%86%99sort%E6%8E%92%E5%BA%8F/" target="_self">
-          java重写sort排序
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/22/java%E9%87%8D%E5%86%99sort%E6%8E%92%E5%BA%8F/" target="_self">
-        <div>
-          将a[i]与b[i]绑定，然后根据b数组的排序结果对a数组进行排序； 先以二维数组nums的形式保存二元组a[i]-b[i]，nums[i][0]&#x3D;a[i],nums[i][1]&#x3D;b[i]; 然后重写Arrays.sort的comparator方法。 12345678int n=a.length;      int[][] nums=new int[n][];      //n
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-22 22:00" pubdate>
               2022-10-22
             </time>
           </div>
